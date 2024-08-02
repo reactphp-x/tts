@@ -346,7 +346,9 @@ class Tts
 
     public function run()
     {
-        $app = new \FrameworkX\App();
+        $app = new \FrameworkX\App(
+            new OptionsMiddleware()
+        );
 
         $app->get('/voices', function ($request) {
             return Response::json($this->voices);
