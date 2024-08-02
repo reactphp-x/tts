@@ -1,0 +1,19 @@
+{
+    "name": "reactphp-framework/tts",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Reactphp\\Framework\\Tts\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "wpjscc",
+            "email": "wpjscc@gmail.com"
+        }
+    ],
+    "require": {
+        "reactphp-framework/framework-x": "^0.16.0",
+        "reactphp-framework/asyncify": "^2.0"
+    }
+}

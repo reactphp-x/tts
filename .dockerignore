@@ -1,0 +1,9 @@
+#  vendor
+.env
+.git
+docker
+node_modules
+dist
+examples/id.txt
+examples/token.json
+examples/pingtai.json
