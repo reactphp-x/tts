@@ -338,6 +338,9 @@ class Tts
     {
         $this->limit = $limit;
         $this->publicPath = $publicPath;
+        if (!is_dir($publicPath)) {
+            mkdir($publicPath, 0777, true);
+        }
         Asyncify::$number = $limit;
     }
 
