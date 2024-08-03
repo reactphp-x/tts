@@ -391,12 +391,14 @@ class Tts
 
 
                     $deferred = new Deferred();
-
+                    // $text = preg_replace("/`/", "", $text);
                     $text = escapeshellarg($text);
 
                     $isError = false;
+                    // $process = new Process('edge-tts --voice '.$voice.' --text '.$text.' --write-media '. $path);
 
-                    $process = new Process("edge-tts --voice $voice --text \"$text\" --write-media $path");
+                    $command = escapeshellarg('edge-tts --voice '.$voice.' --text '.$text.' --write-media '. $path);
+                    $process = new Process('exec bash -c '.$command);
                     $process->start();
 
                     $process->stdout->on('data', function ($chunk) {
@@ -404,6 +406,7 @@ class Tts
                     });
 
                     $process->stderr->on('data', function ($chunk) use ($publicPath, $timeFloat) {
+                        echo $chunk;
                         file_put_contents($publicPath . $timeFloat . '.vtt', $chunk, FILE_APPEND);
                     });
 
