@@ -398,7 +398,7 @@ class Tts
                     // $process = new Process('edge-tts --voice '.$voice.' --text '.$text.' --write-media '. $path);
 
                     $command = escapeshellarg('edge-tts --voice '.$voice.' --text '.$text.' --write-media '. $path);
-                    $process = new Process('exec bash -c '.$command);
+                    $process = new Process('exec sh -c '.$command);
                     $process->start();
 
                     $process->stdout->on('data', function ($chunk) {
