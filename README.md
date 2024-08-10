@@ -2,7 +2,7 @@
 
 ## install
 ```bash
-composer require reactphp/framework-tts -vvv
+composer require reactphp-x/tts -vvv
 ```
 
 ## Usage
