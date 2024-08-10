@@ -14,6 +14,6 @@
     ],
     "require": {
         "reactphp-x/framework-x": "^0.16.0",
-        "reactphp-x/asyncify": "^2.0"
+        "reactphp-x/asyncify": "^1.0"
     }
 }
