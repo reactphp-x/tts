@@ -1,6 +1,6 @@
 <?php
 
-namespace Reactphp\Framework\Tts;
+namespace ReactphpX\Tts;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

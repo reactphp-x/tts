@@ -1,6 +1,6 @@
 <?php
 
-namespace Reactphp\Framework\Tts;
+namespace ReactphpX\Tts;
 
 use React\Http\Message\Response;
 use function React\Promise\resolve;

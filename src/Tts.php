@@ -1,10 +1,10 @@
 <?php
 
-namespace Reactphp\Framework\Tts;
+namespace ReactphpX\Tts;
 
 use React\Http\Message\Response;
-use Reactphp\Framework\Tts\LimitConcurrentRequestsMiddleware;
-use Reactphp\Framework\Asyncify\Asyncify;
+use ReactphpX\Tts\LimitConcurrentRequestsMiddleware;
+use ReactphpX\Asyncify\Asyncify;
 use React\ChildProcess\Process;
 use React\Promise\Deferred;
 

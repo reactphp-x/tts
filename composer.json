@@ -1,9 +1,9 @@
 {
-    "name": "reactphp-framework/tts",
+    "name": "reactphp-x/tts",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Reactphp\\Framework\\Tts\\": "src/"
+            "ReactphpX\\Tts\\": "src/"
         }
     },
     "authors": [
@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-        "reactphp-framework/framework-x": "^0.16.0",
-        "reactphp-framework/asyncify": "^2.0"
+        "reactphp-x/framework-x": "^0.16.0",
+        "reactphp-x/asyncify": "^2.0"
     }
 }
