@@ -7,6 +7,7 @@ use ReactphpX\Tts\LimitConcurrentRequestsMiddleware;
 use ReactphpX\Asyncify\Asyncify;
 use React\ChildProcess\Process;
 use React\Promise\Deferred;
+use Done\Subtitles\Subtitles;
 
 class Tts
 {
@@ -388,6 +389,8 @@ class Tts
                     $timeFloat = microtime(true);
                     $f_name = $timeFloat . '.mp3';
                     $path = $publicPath . $f_name;
+                    $srt = $publicPath . $timeFloat . '.srt';
+                    $vtt = $publicPath . $timeFloat . '.vtt';
 
 
                     $deferred = new Deferred();
@@ -397,7 +400,7 @@ class Tts
                     $isError = false;
                     // $process = new Process('edge-tts --voice '.$voice.' --text '.$text.' --write-media '. $path);
 
-                    $command = escapeshellarg('edge-tts --voice '.$voice.' --text '.$text.' --write-media '. $path);
+                    $command = escapeshellarg('edge-tts --voice '.$voice.' --text '.$text.' --write-media '. $path . ' --write-subtitles '. $srt);
                     $process = new Process('exec sh -c '.$command);
                     $process->start();
 
@@ -417,9 +420,10 @@ class Tts
                     });
 
 
-                    $process->on('exit', function ($exitCode, $termSignal) use (&$isError, $deferred, $timeFloat) {
+                    $process->on('exit', function ($exitCode, $termSignal) use (&$isError, $deferred, $timeFloat, $srt, $vtt) {
                         // echo 'Process exited with code ' . $exitCode . PHP_EOL;
                         if (!$isError) {
+                            Subtitles::convert($srt, $vtt);
                             $deferred->resolve(json_encode([
                                 'filename' => "/voices/$timeFloat.mp3",
                                 'vtt' => "/voices/$timeFloat.vtt"
